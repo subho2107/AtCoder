@@ -4,10 +4,25 @@ from io import BytesIO, IOBase
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    text = list(input())
+    for pos in range(len(text)-1):
+        if text[pos] == 'P'and text[pos+1] == '?':
+            text[pos+1] = 'D'
+        if text[pos] == '?':
+            if text[pos+1] == '?':
+                text[pos] = 'P'
+                text[pos+1] = 'D'
+            elif text[pos+1] == 'D':
+                text[pos] = 'P'
+            else:
+                text[pos] = 'D'
+    if text[-1] == '?':
+        text[-1] = 'D'
+    text = ''.join(text)
+    print(text)
 
-#.........................................FAST INPUT OUTPUT.......................................
+##############################################################################################################
+
 BUFSIZE = 8192
 
 
@@ -57,8 +72,6 @@ class IOWrapper(IOBase):
 
 sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
-
-#....................................END OF FAST I/O............................................
 
 if __name__ == "__main__":
     main()

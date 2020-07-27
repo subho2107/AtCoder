@@ -1,11 +1,36 @@
 import os
 import sys
 from io import BytesIO, IOBase
+import math
+
+
+def inputIntArray():
+    return list(map(int, input().rstrip().split()))
+
+
+def inputArray():
+    return input().rstrip().split()
+
+
+def inputVars():
+    return map(int, input().rstrip().split())
+
+
+def inputNum():
+    return int(input())
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    totalAnimals, noOfLegs = inputVars()
+    ans = 'No'
+    for num in range(totalAnimals+1):
+        rest = totalAnimals-num
+        if 2*num+4*rest==noOfLegs:
+            ans = 'Yes'
+            break
+    print(ans)
+
+
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192

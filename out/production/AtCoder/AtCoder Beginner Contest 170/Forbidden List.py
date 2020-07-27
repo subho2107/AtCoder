@@ -1,11 +1,40 @@
 import os
 import sys
 from io import BytesIO, IOBase
+import math
+def inputIntArray():
+    return list(map(int, input().rstrip().split()))
+
+
+def inputArray():
+    return input().rstrip().split()
+
+
+def inputVars():
+    return map(int, input().rstrip().split())
+
+
+def inputNum():
+    return int(input())
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    x, n = inputVars()
+    if n == 0:
+        print(x)
+        return
+    arr = inputIntArray()
+    minRes = x
+    if x not in arr:
+        print(x)
+        return
+    minRes = float('inf')
+    # arr.sort()
+    for num in range(-1, 110):
+        if num not in arr:
+            minRes = num if abs(num - x) < abs(x - minRes) else minRes
+    print(minRes)
+
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192

@@ -4,8 +4,19 @@ from io import BytesIO, IOBase
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    a,b = input().rstrip().split()
+    b = int(b[:-3]+b[-2:])
+    a = int(a)
+    res = str(a* b)
+    if len(res) <= 2:
+        print(0)
+        return
+    res = int(res[:-2])
+    print(res)
+
+
+
+
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192

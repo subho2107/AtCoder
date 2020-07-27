@@ -4,8 +4,8 @@ from io import BytesIO, IOBase
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    A, B = map(int, input().rstrip().split())
+    print(A*B)
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192

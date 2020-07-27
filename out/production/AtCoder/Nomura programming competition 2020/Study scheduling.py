@@ -1,13 +1,16 @@
+
 import os
 import sys
 from io import BytesIO, IOBase
-
-
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    startHour, startMin, endHour, endMin, studyTime = map(int, input().rstrip().split())
+    diff = (endHour-startHour)*60 - startMin + endMin
+    if diff <= studyTime:
+        print(0)
+    else:
+        print(diff-studyTime)
 
-#.........................................FAST INPUT OUTPUT.......................................
+##############################################################################################################
 BUFSIZE = 8192
 
 
@@ -58,7 +61,7 @@ class IOWrapper(IOBase):
 sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
-#....................................END OF FAST I/O............................................
+
 
 if __name__ == "__main__":
     main()

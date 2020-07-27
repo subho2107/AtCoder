@@ -1,11 +1,35 @@
 import os
 import sys
 from io import BytesIO, IOBase
+import math
+
+
+def inputIntArray():
+    return list(map(int, input().rstrip().split()))
+
+
+def inputArray():
+    return input().rstrip().split()
+
+
+def inputVars():
+    return map(int, input().rstrip().split())
+
+
+def inputNum():
+    return int(input())
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    arr = inputIntArray()
+    for pos in range(5):
+        if arr[pos] == 0:
+            print(pos+1)
+            break
+
+
+
+
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192

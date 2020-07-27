@@ -4,8 +4,18 @@ from io import BytesIO, IOBase
 
 
 def main():
-    KyuInAtCoder, B = map(int, input().rstrip().split())
-    print(KyuInAtCoder*B)
+    n = int(input())
+    arr = list(map(int, input().rstrip().split()))
+    product = 1
+    if 0 in arr:
+        print(0)
+        return
+    for num in arr:
+        if product * num > 10**18:
+            product = -1
+            break
+        product *= num
+    print(product)
 
 #.........................................FAST INPUT OUTPUT.......................................
 BUFSIZE = 8192
